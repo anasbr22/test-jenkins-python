@@ -1,27 +1,18 @@
 pipeline {
     agent any 
-
     stages {
-        stage('Checkout') {
+        stage('clone') { 
             steps {
-                // Récupérer le code source
-                git url: 'https://github.com/anasbr22/test-jenkins-python.git' 
+                sh "rm -rf *"
+                sh "git clone https://github.com/anasbr22/test-jenkins-python"W
             }
         }
-
-
         stage('Run Tests') {
             steps {
                 // Exécuter les tests unitaires
                 sh 'python -m unittest  test_app.py'
             }
         }
-    }
-
-    post {
-        always {
-            // Actions à exécuter après l'exécution du pipeline (par exemple, archive des résultats, notification, etc.)
-            junit 'test_*.xml' // Si vous générez des rapports JUnit
-        }
+       
     }
 }
