@@ -5,21 +5,15 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Récupérer le code source
-                git url: 'https://your-repo-url.git' // Remplacez par l'URL de votre dépôt
+                git url: 'https://github.com/anasbr22/test-jenkins-python.git' 
             }
         }
 
-        stage('Install Dependencies') {
-            steps {
-                // Installer les dépendances si nécessaire (exemple avec pip)
-                sh 'pip install -r requirements.txt' // Assurez-vous d'avoir un fichier requirements.txt si nécessaire
-            }
-        }
 
         stage('Run Tests') {
             steps {
                 // Exécuter les tests unitaires
-                sh 'python -m unittest discover'
+                sh 'python -m unittest  test_app.py'
             }
         }
     }
