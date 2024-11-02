@@ -1,1 +1,2 @@
-unittest
+pytest==7.2.0           # Utilisé pour exécuter et organiser les tests
+coverage==6.5.0         # Utilisé pour générer un rapport de couverture de code
